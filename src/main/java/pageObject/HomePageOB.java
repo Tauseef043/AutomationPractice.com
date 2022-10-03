@@ -1,6 +1,9 @@
 package pageObject;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -39,9 +42,23 @@ public class HomePageOB {
 	private By productView = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[1]/div/div[1]/a");
 	private By productTitle = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[2]/h5/a");
 	private By productPrice = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[2]/div[1]/span");
+	
+	
+	
+	private By productPriceList = By.xpath("//ul[@id='homefeatured']/li/div/div[2]/div[1]");
+	private By productList = By.xpath("//ul[@id='homefeatured']/li");
+	private By productTitleList=By.xpath("//ul[@id='homefeatured']/li/div/div[2]/h5/a");
+	private By productImageList=By.xpath("//ul[@id='homefeatured']/li/div/div[1]/div[1]/a/img");
+	private By productCartBtnListHover=By.xpath("//ul[@id='homefeatured']/li/div/div[2]/div[2]/a[1]");
+	private By productMoreBtnListHover=By.xpath("//ul[@id='homefeatured']/li/div/div[2]/div[2]/a[2]");	
+	
+	
 	private By productHoveraddToCart = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[2]/div[2]/a[1]");
 	private By productHoverMoreBtn = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[2]/div[2]/a[2]");
 	private By productHoverPrice = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[1]/div/div[2]/span");
+	
+	private By productCard=By.xpath("//ul[@id='homefeatured']/li[1]");
+	
 	private WebDriver driver;
 
 	public HomePageOB(WebDriver driver) {
@@ -157,5 +174,60 @@ public class HomePageOB {
 
 	public WebElement getproductHoverPrice() {
 		return driver.findElement(productHoverPrice);
+	}
+	
+	public void getScrollDonw(WebElement element)
+	{
+		JavascriptExecutor je = (JavascriptExecutor) driver;
+		je.executeScript("arguments[0].scrollIntoView(true);", element);
+		
+		
+	}
+	
+	
+	public List<WebElement> getproductMoreBtnListHover()
+	{
+
+		return driver.findElements(productMoreBtnListHover);
+	}
+	
+	
+	public List<WebElement> getProductCartBtnListHover()
+	{
+
+		return driver.findElements(productCartBtnListHover);
+	}
+	
+	
+	public List<WebElement> getProductTitleList()
+	{
+
+		return driver.findElements(productTitleList);
+	}
+	
+	public List<WebElement> getProductList()
+	{
+
+		return driver.findElements(productList);
+	}
+	
+	
+	
+	
+	public List<WebElement> getproductImageList()
+	{
+
+		return driver.findElements(productImageList);
+	}
+	
+	
+	public List<WebElement> getproductPriceList()
+	{
+		return  driver.findElements(productPriceList);
+	}
+	
+	public WebElement getProductCard()
+	{
+		return driver.findElement(productCard);
 	}
 }

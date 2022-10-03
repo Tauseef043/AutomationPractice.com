@@ -5,9 +5,17 @@
     <classes>
       <class name="automation.AutomationPractice.HomePageTest">
         <methods>
-          <include name="productVerification"/>
+          <include name="leftBannerImageVisibility"/>
+          <include name="leftBannerTitleVisibility"/>
+          <include name="validateProductsImage"/>
+          <include name="validateProductsTitle"/>
+          <include name="rightDownBannerVisiblity"/>
+          <include name="validateProductsPrice"/>
+          <include name="leftBannerDescriptionVisibility"/>
+          <include name="productTabsVerification"/>
           <include name="initialization"/>
-          <include name="productHoverQuickViewVerification"/>
+          <include name="leftBannerShopBTNVisibility"/>
+          <include name="rightUpBannerVisiblity"/>
           <include name="waitMethod"/>
         </methods>
       </class> <!-- automation.AutomationPractice.HomePageTest -->
