@@ -3,22 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="automation.AutomationPractice.HomePageTest">
+      <class name="automation.AutomationPractice.testtt">
         <methods>
-          <include name="leftBannerImageVisibility"/>
-          <include name="leftBannerTitleVisibility"/>
-          <include name="validateProductsImage"/>
-          <include name="validateProductsTitle"/>
-          <include name="rightDownBannerVisiblity"/>
-          <include name="validateProductsPrice"/>
-          <include name="leftBannerDescriptionVisibility"/>
-          <include name="productTabsVerification"/>
           <include name="initialization"/>
-          <include name="leftBannerShopBTNVisibility"/>
-          <include name="rightUpBannerVisiblity"/>
-          <include name="waitMethod"/>
+          <include name="switchToiFrame"/>
         </methods>
-      </class> <!-- automation.AutomationPractice.HomePageTest -->
+      </class> <!-- automation.AutomationPractice.testtt -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

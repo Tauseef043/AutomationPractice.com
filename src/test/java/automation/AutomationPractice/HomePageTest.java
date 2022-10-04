@@ -26,13 +26,15 @@ public class HomePageTest extends base {
 	private JavascriptExecutor je = (JavascriptExecutor) driver;
 	private String product_name;
 	private String product_price;
+	private String title;
+	private Actions act;
+
 	@BeforeTest
 	public void initialization() throws IOException {
 
 		driver = initializeDriver();
 
 		driver.get(prop.getProperty("baseURL"));
-	
 
 	}
 
@@ -225,7 +227,8 @@ public class HomePageTest extends base {
 		hp.getPopularProdTab().click();
 
 	}
-	@Test(priority=8)
+
+	@Test(priority = 8)
 	public void validateProductsTitle() {
 		hp.getScrollDonw(hp.getProductCard());
 		// Fetch All the Products Text
@@ -248,7 +251,7 @@ public class HomePageTest extends base {
 
 	}
 
-	@Test(priority=10)
+	@Test(priority = 10)
 	public void validateProductsPrice() {
 
 		hp.getScrollDonw(hp.getProductCard());
@@ -257,7 +260,7 @@ public class HomePageTest extends base {
 		List<WebElement> list_of_productsPrice = (List<WebElement>) hp.getproductPriceList();
 		for (int i = 0; i < list_of_products.size(); i++) {
 			product_price = list_of_productsPrice.get(i).getText().toString();// Iterate and fetch
-		//System.out.println(product_price);
+			// System.out.println(product_price);
 			if (!product_price.equals(null)) {
 				Assert.assertTrue(true, "Product Price: " + product_price);
 				Reporter.log("Product price fetched from UI is :" + product_price, true);
@@ -269,51 +272,127 @@ public class HomePageTest extends base {
 		}
 
 	}
-	
-	
-	@Test(priority=11)
+
+	@Test(priority = 11)
 	public void validateProductsImage() {
 		hp.getScrollDonw(hp.getProductCard());
 		// Fetch All the Products Text
 		List<WebElement> list_of_products = (List<WebElement>) hp.getProductList();
 		List<WebElement> list_of_productsImage = (List<WebElement>) hp.getproductImageList();
 		for (int i = 0; i < list_of_products.size(); i++) {
-			
 
 			if (list_of_productsImage.get(i).isDisplayed()) {
-				
+
 				Assert.assertTrue(hp.getleftBannerIMG1().isDisplayed(), "Product Image visiblity");
 
-			}
-			else if (!list_of_productsImage.get(i).isDisplayed()) {
-				
-				Assert.assertTrue(hp.getleftBannerIMG1().isDisplayed(), "Product Image visiblity");
+			} else if (!list_of_productsImage.get(i).isDisplayed()) {
 
+				Assert.assertTrue(hp.getleftBannerIMG1().isDisplayed(), "Product Image visiblity");
 
 			}
 
 		}
 
 	}
-	
-	
-	/*
-	 * @Test (priority = 8) public void productHoverQuickViewVerification() {
-	 * driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Create
-	 * instance of Javascript executor JavascriptExecutor je = (JavascriptExecutor)
-	 * driver; // Identify the WebElement which will appear after scrolling down
-	 * 
-	 * WebElement element = hp.getproductPrice(); // now execute query which
-	 * actually will scroll until that element is not // appeared on page.
-	 * je.executeScript("arguments[0].scrollIntoView(true);", element);
-	 * 
-	 * hp.getScrollDonw(hp.getProductCard()); Actions act = new Actions(driver);
-	 * act.moveToElement(hp.getproductHoverQuickView()).build().perform();
-	 * 
-	 * Assert.assertTrue(hp.getproductHoverQuickView().isEnabled(),
-	 * "Product quick view button is visible");
-	 * hp.getproductHoverQuickView().click();
-	 * 
-	 * }
-	 */
+
+	@Test(priority = 12)
+	public void validateProductQuickViewBtnHover() {
+		hp.getScrollDonw(hp.getProductCard());
+
+		act = hp.getHoverOnElement(hp.getproductHoverQuickView());
+
+		act.click().build().perform();
+
+		// Print the first result
+		// System.out.println("test quick txt "+QuikElement.getText());
+
+	}
+
+	@Test(priority = 13)
+	public void quickViewValidateIMG() {
+		hp.switchToiFrame(hp.getProductQuickViewIMGFrameId());
+
+		Assert.assertTrue(hp.getProductQuickViewIMG().isDisplayed(), "Quick View Image visibility");
+
+		List<WebElement> quickViewIMGList = hp.getProductQuickViewIMGList();
+
+		for (int i = 0; i < quickViewIMGList.size(); i++) {
+
+			act = hp.getHoverOnElement(quickViewIMGList.get(i));
+			act.click().build().perform();
+
+			if (hp.getProductQuickViewIMG().isDisplayed()) {
+				Assert.assertTrue(true, "Bottom Image " + i + " Visiblility");
+			} else {
+				Assert.assertTrue(false, "Bottom Image " + i + " Visiblility");
+			}
+
+		}
+
+	}
+	@Test(priority = 14)
+	public void quickView_ValidateIMG_BottomList() {
+		
+		hp.getScrollDonw(hp.getProductQuickViewIMGFrameId());
+		
+		hp.switchToiFrame(hp.getProductQuickViewIMGFrameId());
+
+		
+		List<WebElement> quickViewIMGList = hp.getProductQuickViewIMGList();
+
+		for (int i = 0; i < quickViewIMGList.size(); i++) {
+
+
+			
+			if (quickViewIMGList.get(i).isDisplayed()) {
+				Assert.assertTrue(true, "Bottom Image " + i + " Visiblility");
+			} else {
+				Assert.assertTrue(false, "Bottom Image " + i + " Visiblility");
+			}
+
+		}
+
+	}
+	@Test(priority = 15)
+	public void quickView_Validate_product_Title() 
+	{
+		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(),"Product Title Visibility");
+		
+	}
+	@Test(priority = 16)
+	public void quickView_Validate_product_SKU() 
+	{
+		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(),"Product SKU Visibility");
+		
+	}
+	@Test(priority = 17)
+	public void quickView_Validate_product_ConditionType() 
+	{
+		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(),"Product Condition Visibility");
+		
+	}
+	@Test(priority = 18)
+	public void quickView_Validate_product_DESC() 
+	{
+		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(),"Product Description Visibility");
+		
+	}
+	@Test(priority = 23)
+	public void validateProductMoreBtnHover() {
+		hp.getScrollDonw(hp.getProductCard());
+
+		act = hp.getHoverOnElement(hp.getproductHoverMoreBtn());
+
+		Assert.assertTrue(hp.getproductHoverMoreBtn().isEnabled(), "More button clickable");
+
+		act.click().build().perform();
+
+		title = "Faded Short Sleeve T-shirts - My Store";
+
+		Assert.assertEquals(driver.getTitle().trim(), title.trim());
+
+		driver.navigate().back();
+
+	}
+
 }

@@ -1,11 +1,16 @@
 package pageObject;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class HomePageOB {
 
@@ -51,13 +56,29 @@ public class HomePageOB {
 	private By productImageList=By.xpath("//ul[@id='homefeatured']/li/div/div[1]/div[1]/a/img");
 	private By productCartBtnListHover=By.xpath("//ul[@id='homefeatured']/li/div/div[2]/div[2]/a[1]");
 	private By productMoreBtnListHover=By.xpath("//ul[@id='homefeatured']/li/div/div[2]/div[2]/a[2]");	
-	
+	private By productQuickBtnListHover=By.xpath("//ul[@id='homefeatured']/li/div/div[1]/div/a[2]");
 	
 	private By productHoveraddToCart = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[2]/div[2]/a[1]");
 	private By productHoverMoreBtn = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[2]/div[2]/a[2]");
 	private By productHoverPrice = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[1]/div/div[2]/span");
 	
 	private By productCard=By.xpath("//ul[@id='homefeatured']/li[1]");
+	
+	
+	
+	private By productQuickViewIMGFrameId=By.id("fancybox-frame1664869806821");
+	
+	private By productQuickViewIMG=By.id("bigpic");
+	private By productQuickViewIMGList=By.id("//ul[@id='thumbs_list_frame']/li");
+	private By productQuickViewProductTitle=By.id("//body[@id='product']/div/div/div[2]/h1");
+	
+	private By productQuickViewSKU=By.xpath("//p[@id='product_reference']/span");
+	private By productQuickViewModel=By.xpath("//p[@id='product_reference']/label");
+	private By productQuickViewCondition=By.xpath("//p[@id='product_condition']/span");
+	private By productQuickViewConditionType=By.xpath("//p[@id='product_condition']/label");
+
+	private By productQuickViewDESC=By.xpath("//div[@id='short_description_content']/p");
+
 	
 	private WebDriver driver;
 
@@ -213,7 +234,11 @@ public class HomePageOB {
 	
 	
 	
-	
+	public List<WebElement> getproductQuickBtnListHover()
+	{
+
+		return driver.findElements(productQuickBtnListHover);
+	}
 	public List<WebElement> getproductImageList()
 	{
 
@@ -230,4 +255,82 @@ public class HomePageOB {
 	{
 		return driver.findElement(productCard);
 	}
+	public Actions getHoverOnElement(WebElement element)
+	{
+		Actions act= new Actions(driver);
+		
+		act.moveToElement(element).build().perform();
+		
+		WebElement waitElement = new WebDriverWait(driver, Duration.ofSeconds(10))
+		        .until(ExpectedConditions.visibilityOfElementLocated(productHoverQuickView));
+		
+		return act;
+	}
+	
+	public WebElement getProductQuickViewIMGFrameId()
+	{
+		return driver.findElement(productQuickViewIMGFrameId);
+		
+	}
+	
+	public WebElement getProductQuickViewIMG()
+	{
+		return driver.findElement(productQuickViewIMG);
+		
+	}
+	public void switchToiFrame(WebElement element)
+	{
+		driver.switchTo().frame(element);
+			
+		
+	}
+	public List<WebElement> getProductQuickViewIMGList()
+	{
+		
+		return driver.findElements(productQuickViewIMGList);
+	}
+	public WebElement getProduct_QuickView_Product_Title()
+	{
+		
+		return driver.findElement(productQuickViewProductTitle);
+	}
+	
+	
+	public void switchToNormalFromFrame()
+	{
+		driver.switchTo().defaultContent();
+			
+		
+	}
+	public WebElement getProduct_QuickView_SKU()
+	{
+		
+		return driver.findElement(productQuickViewSKU);
+	}
+	public WebElement getProduct_QuickView_Model()
+	{
+		
+		return driver.findElement(productQuickViewModel);
+	}
+	public WebElement getProduct_QuickView_Condition()
+	{
+		
+		return driver.findElement(productQuickViewCondition);
+	}
+	public WebElement getProduct_QuickView_Condition_Type()
+	{
+		
+		return driver.findElement(productQuickViewConditionType);
+	}
+	public WebElement getProduct_QuickView_DESC()
+	{
+		
+		return driver.findElement(productQuickViewDESC);
+	}
+	
+	
+	
+
+
+	
 }
