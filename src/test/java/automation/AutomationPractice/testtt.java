@@ -38,7 +38,8 @@ public class testtt extends base {
 
 		log.info("Driver is initialzie");
 
-		driver.get("https://jqueryui.com/droppable/");
+		driver.get(prop.getProperty("baseURL"));
+
 		hp = new HomePageOB(driver);
 
 	}
@@ -46,24 +47,6 @@ public class testtt extends base {
 @Test
 public void switchToiFrame()
 {
-	driver.switchTo().frame(driver.findElement(By.cssSelector("iframe.demo-frame")));
-
-	System.out.println(driver.findElement(By.cssSelector("iframe.demo-frame")).getSize());
-	//driver.switchTo().frame(0);
-	Actions act=new Actions(driver);
-	WebElement source=driver.findElement(By.id("draggable"));
-	WebElement destination=driver.findElement(By.id("droppable"));
-	
-	act.dragAndDrop(source, destination).build().perform();
-	
-	//ab hum frame me hain frame se outside kisi web element ko access ni kr skty frame se out hona parta hai
-	//driver.findElement(By.xpath("//div[@class='demo-list']/ul/li[2]")).click(); //i.e
-	//directly access nai kr skty frame se bahar ana parta hai
-	
-	driver.switchTo().defaultContent();
-	driver.findElement(By.xpath("//div[@class='demo-list']/ul/li[2]")).click();
-	
-	
 }
 	
 

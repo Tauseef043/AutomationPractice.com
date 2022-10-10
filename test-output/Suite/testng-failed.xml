@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
     <classes>
       <class name="automation.AutomationPractice.HomePageTest">
         <methods>
           <include name="quickViewValidateIMG"/>
-          <include name="quickView_Validate_product_ConditionType"/>
           <include name="validateProductQuickViewBtnHover"/>
           <include name="leftBannerTitleVisibility"/>
           <include name="rightDownBannerVisiblity"/>
           <include name="leftBannerDescriptionVisibility"/>
           <include name="quickView_ValidateIMG_BottomList"/>
           <include name="initialization"/>
-          <include name="quickView_Validate_product_Title"/>
           <include name="rightUpBannerVisiblity"/>
           <include name="waitMethod"/>
           <include name="leftBannerImageVisibility"/>
@@ -21,11 +19,9 @@
           <include name="validateProductsTitle"/>
           <include name="validateProductsPrice"/>
           <include name="productTabsVerification"/>
-          <include name="quickView_Validate_product_SKU"/>
           <include name="leftBannerShopBTNVisibility"/>
-          <include name="quickView_Validate_product_DESC"/>
         </methods>
       </class> <!-- automation.AutomationPractice.HomePageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -3,9 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="automation.AutomationPractice.Homepage"/>
-      <class name="automation.AutomationPractice.ContactUs"/>
-     <class name="automation.AutomationPractice.LoginTest"/>
+      <class name="automation.AutomationPractice.HomePageTest"/>
     
   <!--      <class name="automation.AutomationPractice.AppTest"/>-->
     </classes>

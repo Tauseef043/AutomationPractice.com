@@ -5,12 +5,18 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import com.google.common.base.Function;
 
 public class HomePageOB {
 
@@ -66,20 +72,21 @@ public class HomePageOB {
 	
 	
 	
-	private By productQuickViewIMGFrameId=By.id("fancybox-frame1664869806821");
+	private By productQuickViewIFrameId=By.xpath("//iframe[contains(@id,'fancybox-frame')]");
+
 	
 	private By productQuickViewIMG=By.id("bigpic");
-	private By productQuickViewIMGList=By.id("//ul[@id='thumbs_list_frame']/li");
-	private By productQuickViewProductTitle=By.id("//body[@id='product']/div/div/div[2]/h1");
+	private By productQuickViewIMGList=By.xpath("//ul[@id='thumbs_list_frame']/li");
+	private By productQuickViewProductTitle=By.xpath("//body[@id='product']/div/div/div[2]/h1");
 	
-	private By productQuickViewSKU=By.xpath("//p[@id='product_reference']/span");
+	private By productQuickViewSKU=By.xpath("//p[@id='product_reference']");
 	private By productQuickViewModel=By.xpath("//p[@id='product_reference']/label");
 	private By productQuickViewCondition=By.xpath("//p[@id='product_condition']/span");
 	private By productQuickViewConditionType=By.xpath("//p[@id='product_condition']/label");
 
 	private By productQuickViewDESC=By.xpath("//div[@id='short_description_content']/p");
 
-	
+	private WebElement expectedElement;
 	private WebDriver driver;
 
 	public HomePageOB(WebDriver driver) {
@@ -261,15 +268,13 @@ public class HomePageOB {
 		
 		act.moveToElement(element).build().perform();
 		
-		WebElement waitElement = new WebDriverWait(driver, Duration.ofSeconds(10))
-		        .until(ExpectedConditions.visibilityOfElementLocated(productHoverQuickView));
-		
+		getImplictWait();
 		return act;
 	}
 	
-	public WebElement getProductQuickViewIMGFrameId()
+	public WebElement getProductQuickViewIFrameId()
 	{
-		return driver.findElement(productQuickViewIMGFrameId);
+		return driver.findElement(productQuickViewIFrameId);
 		
 	}
 	
@@ -278,12 +283,7 @@ public class HomePageOB {
 		return driver.findElement(productQuickViewIMG);
 		
 	}
-	public void switchToiFrame(WebElement element)
-	{
-		driver.switchTo().frame(element);
-			
-		
-	}
+
 	public List<WebElement> getProductQuickViewIMGList()
 	{
 		
@@ -295,7 +295,12 @@ public class HomePageOB {
 		return driver.findElement(productQuickViewProductTitle);
 	}
 	
-	
+	public void switchToiFrame()
+	{
+		driver.switchTo().frame(1);
+			
+		
+	}	
 	public void switchToNormalFromFrame()
 	{
 		driver.switchTo().defaultContent();
@@ -328,9 +333,28 @@ public class HomePageOB {
 		return driver.findElement(productQuickViewDESC);
 	}
 	
+	public void getImplictWait()
+	{
+		try{
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		}
 	
+			 
+		catch(Exception e){
+				    System.out.println(e.toString());
+				}
+		
+	}
 	
-
+	public WebElement getExplictWait(WebElement element)
+	{
+		
+		 expectedElement = new WebDriverWait(driver, Duration.ofSeconds(10))
+		        .until(ExpectedConditions.visibilityOfElementLocated(productQuickViewIMG));
+		 
+		 return  expectedElement;
+		
+	}
 
 	
 }
