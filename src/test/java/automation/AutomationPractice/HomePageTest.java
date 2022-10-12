@@ -10,6 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -40,7 +41,7 @@ public class HomePageTest extends base {
 
 	@BeforeMethod
 	public void waitMethod() {
-		
+
 		hp = new HomePageOB(driver);
 
 	}
@@ -276,7 +277,7 @@ public class HomePageTest extends base {
 	@Test(priority = 10)
 	public void validateProductsImage() {
 		hp.getScrollDonw(hp.getProductCard());
-		
+
 		hp.getImplictWait();
 		// Fetch All the Products Text
 		List<WebElement> list_of_products = (List<WebElement>) hp.getProductList();
@@ -312,10 +313,9 @@ public class HomePageTest extends base {
 
 	@Test(priority = 12)
 	public void quickViewValidateIMG() {
-		//hp.getImplictWait();
+		// hp.getImplictWait();
 		hp.switchToiFrame();
 		hp.getExplictWait(hp.getProductQuickViewIMG());
-	
 
 		Assert.assertTrue(hp.getProductQuickViewIMG().isDisplayed(), "Quick View Image visibility");
 
@@ -335,21 +335,19 @@ public class HomePageTest extends base {
 		}
 		hp.switchToNormalFromFrame();
 	}
-		
+
 	@Test(priority = 13)
 	public void quickView_ValidateIMG_BottomList() throws InterruptedException {
 		hp.getImplictWait();
-		
-	//	hp.switchToiFrame(hp.getProductQuickViewIFrameId());
+
+		// hp.switchToiFrame(hp.getProductQuickViewIFrameId());
 		hp.switchToiFrame();
-		//hp.getScrollDonw(hp.getProductQuickViewIFrameId());
-		
+		// hp.getScrollDonw(hp.getProductQuickViewIFrameId());
+
 		List<WebElement> quickViewIMGList = hp.getProductQuickViewIMGList();
 
 		for (int i = 0; i < quickViewIMGList.size(); i++) {
 
-
-			
 			if (quickViewIMGList.get(i).isDisplayed()) {
 				Assert.assertTrue(true, "Bottom Image " + i + " Visiblility");
 			} else {
@@ -360,64 +358,177 @@ public class HomePageTest extends base {
 		hp.switchToNormalFromFrame();
 
 	}
-	
+
 	@Test(priority = 14)
-	public void quickView_Validate_product_Title() 
-	{
+	public void quickView_Validate_product_Title() {
 
 		hp.getImplictWait();
 
 		hp.switchToiFrame();
-		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(),"Product Title Visibility");		
+		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(), "Product Title Visibility");
 		hp.switchToNormalFromFrame();
-		
+
 	}
 
 	@Test(priority = 15)
-	public void quickView_Validate_product_SKU() 
-	{
+	public void quickView_Validate_product_SKU() {
 		hp.getImplictWait();
 		hp.switchToiFrame();
-		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(),"Product SKU Visibility");
+		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(), "Product SKU Visibility");
 		hp.switchToNormalFromFrame();
 	}
-	
+
 	@Test(priority = 16)
-	public void quickView_Validate_product_ConditionType() 
-	{
+	public void quickView_Validate_product_ConditionType() {
 		hp.getImplictWait();
 		hp.switchToiFrame();
-		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(),"Product Condition Visibility");
+		Assert.assertTrue(hp.getProduct_QuickView_Product_Title().isDisplayed(), "Product Condition Visibility");
 		hp.switchToNormalFromFrame();
 	}
-	
+
 	@Test(priority = 17)
-	public void quickView_Validate_product_DESC() 
+	public void quickView_Validate_product_DESC() {
+
+		hp.switchToiFrame();
+		hp.getImplictWait();
+		Assert.assertTrue(hp.getProduct_QuickView_DESC().isDisplayed(), "Product Description Visibility");
+		hp.switchToNormalFromFrame();
+	}
+
+	@Test(priority = 18)
+	public void quickView_Validate_Prices() {
+		hp.switchToiFrame();
+		hp.getImplictWait();
+
+		Assert.assertTrue(hp.getProductQuickViewPrice().isDisplayed(), "Product quick view price Visibility");
+		if (!hp.getProductQuickViewDiscount().getText().isEmpty()) {
+			Assert.assertTrue(hp.getProductQuickViewDiscount().isDisplayed(),
+					"Product quick view discount on price Visibility");
+			Assert.assertTrue(hp.getProductQuickViewOldPrice().isDisplayed(),
+					"Product quick view old price Visibility");
+
+		}
+
+		hp.switchToNormalFromFrame();
+	}
+
+	@Test(priority = 19)
+	public void validateQuanitityLabel() {
+		hp.switchToiFrame();
+		hp.getImplictWait();
+
+		if (hp.getProductQuickViewQuantiyTXT().getText().toString().trim().equals("Quantity")) {
+			Assert.assertTrue(true, "Quantity Label visibilty");
+		}
+
+		hp.switchToNormalFromFrame();
+
+	}
+
+	@Test(priority = 20)
+	public void validate_quickView_Quanitity() throws InterruptedException {
+		String quantity = null;
+		int i = 0;
+		hp.switchToiFrame();
+		hp.getImplictWait();
+		System.out.println("******** " + hp.getProductQuickViewQuantiy().getText().toString());
+
+		// validate add button is clickable
+		if (hp.getProductQuickViewQuantiyAdd().isEnabled()) {
+
+			while (i <= 3) {
+
+				hp.getProductQuickViewQuantiyAdd().click();
+				i++;
+
+			}
+
+		} else {
+			Assert.assertTrue(false, "button clickable");
+		}
+
+		// System.out.println("********
+		// "+hp.getProductQuickViewQuantiy().getAttribute("value"));
+		try {
+			if (Integer.parseInt(hp.getProductQuickViewQuantiy().getAttribute("value")) == i) {
+				Assert.assertTrue(true, "Qunaity add buttton working");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("not a number" + e);
+		}
+		// validate remove button is clickable
+		if (hp.getProductQuickViewQuantiyRemv().isEnabled()) {
+
+			while (i >= 1) {
+
+				hp.getProductQuickViewQuantiyRemv().click();
+				i--;
+
+			}
+
+		} else {
+			Assert.assertTrue(false, "button clickable");
+		}
+
+		try {
+			if (Integer.parseInt(hp.getProductQuickViewQuantiy().getAttribute("value")) == i) {
+				Assert.assertTrue(true, "Qunaity Remove buttton working");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("not a number" + e);
+		}
+
+		hp.switchToNormalFromFrame();
+
+	}
+
+	@Test(priority = 21)
+	public void validate_quickView_Size() {
+		hp.switchToiFrame();
+		hp.getImplictWait();
+
+		Select dropDown = hp.getSelectDropdownList(hp.getProductQuickViewSelectSize());
+
+		dropDown.selectByVisibleText(prop.getProperty("productSize"));
+
+		System.out.println("Selected Size: " + dropDown.getFirstSelectedOption().getText());
+		Assert.assertEquals(dropDown.getFirstSelectedOption().getText(), prop.getProperty("productSize"),
+				"product size select option");
+
+		hp.switchToNormalFromFrame();
+
+	}
+	
+	
+	@Test(priority = 22)
+	public void validate_quickView_ProductColor()
 	{
 		
-		hp.switchToiFrame();
-		hp.getImplictWait();
-		Assert.assertTrue(hp.getProduct_QuickView_DESC().isDisplayed(),"Product Description Visibility");
-		hp.switchToNormalFromFrame();
 	}
-	/*	
-	@Test(priority = 18)
-	public void validateProductMoreBtnHover() {
-		hp.getScrollDonw(hp.getProductCard());
-
-		act = hp.getHoverOnElement(hp.getproductHoverMoreBtn());
-
-		Assert.assertTrue(hp.getproductHoverMoreBtn().isEnabled(), "More button clickable");
-
-		act.click().build().perform();
-
-		title = "Faded Short Sleeve T-shirts - My Store";
-
-		Assert.assertEquals(driver.getTitle().trim(), title.trim());
-
-		driver.navigate().back();
-
+	@Test(priority = 23)
+	public void validate_quickView_ProductAddCartBtn()
+	{
+		
 	}
-	*/
+	
+	/*
+	 * @Test(priority = 18) public void validateProductMoreBtnHover() {
+	 * hp.getScrollDonw(hp.getProductCard());
+	 * 
+	 * act = hp.getHoverOnElement(hp.getproductHoverMoreBtn());
+	 * 
+	 * Assert.assertTrue(hp.getproductHoverMoreBtn().isEnabled(),
+	 * "More button clickable");
+	 * 
+	 * act.click().build().perform();
+	 * 
+	 * title = "Faded Short Sleeve T-shirts - My Store";
+	 * 
+	 * Assert.assertEquals(driver.getTitle().trim(), title.trim());
+	 * 
+	 * driver.navigate().back();
+	 * 
+	 * }
+	 */
 
 }
