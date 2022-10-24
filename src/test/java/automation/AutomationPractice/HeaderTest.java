@@ -226,7 +226,8 @@ public class HeaderTest extends base {
 		Assert.assertEquals(title, driver.getTitle(), "T-Shirts Page is Opened");
 		lp.bannerIMG().click();
 	}
-
+	
+	
 	@AfterTest
 	public void tearDown() {
 

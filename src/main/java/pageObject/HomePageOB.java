@@ -19,7 +19,9 @@ import org.testng.Assert;
 
 import com.google.common.base.Function;
 
-public class HomePageOB {
+import resources.base;
+
+public class HomePageOB extends base{
 
 	// banners locators
 	private By leftBanner = By.xpath("//ul[@id='homeslider']");
@@ -67,7 +69,7 @@ public class HomePageOB {
 	private By productHoverMoreBtn = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[2]/div[2]/a[2]");
 	private By productHoverPrice = By.xpath("//ul[@id='homefeatured']/li[1]/div/div[1]/div/div[2]/span");
 
-	private By productCard = By.xpath("//ul[@id='homefeatured']/li[1]");
+	private By productCard = By.xpath("//ul[@id='homefeatured']/li[1]/div");
 
 	private By productQuickViewIFrameId = By.xpath("//iframe[contains(@id,'fancybox-frame')]");
 
@@ -92,16 +94,73 @@ public class HomePageOB {
 	private By ProductQuickViewQuantiyTXT = By.xpath("//p[@id='quantity_wanted_p']/label");
 	private By ProductQuickViewSelectSize = By.xpath("//select[@id='group_1']");
 
-	//lcoatos for product color quick view
+	// lcoatos for product color quick view
 	private By ProductQuickViewColor = By.xpath("//ul[@id='color_to_pick_list']/li");
 
-	//add to cart button quick view
+	// add to cart button quick view
 	private By ProductQuickViewAddToCartBtn = By.xpath("//p[@id='add_to_cart']/button");
-	
 
-	
-	
-	private WebElement expectedElement;
+	private By ProductQuickView_AddToCartSuccessMSG = By.xpath("//div[@id='layer_cart']/div/div[1]/h2");
+	private By ProductQuickView_CartAddIMG = By.xpath("//div[@id='layer_cart']/div/div[1]/div/img");
+
+	private By ProductQuickView_CartAddTitle = By.xpath("//span[@id='layer_cart_product_title']");
+	private By ProductQuickView_CartAddSize = By.xpath("//span[@id='layer_cart_product_attributes']");
+	private By ProductQuickView_CartAddQuantity = By.xpath("//span[@id='//span[@id='layer_cart_product_quantity']']");
+	private By ProductQuickView_CartAddQuantityTXT = By
+			.xpath("//div[@id='layer_cart']/div/div[1]/div[2]/div[1]/strong");
+
+	private By ProductQuickView_CartAddTotalPTXT = By.xpath("//div[@id='layer_cart']/div/div[1]/div[2]/div[2]/strong");
+	private By ProductQuickView_CartAddTotalPrice = By.xpath("//span[@id='layer_cart_product_price']");
+
+	private By ProductQuickView_AddToCartTotalCartItemsMSG = By.xpath("//div[@id='layer_cart']/div/div[2]/h2");
+	private By ProductQuickView_AddToCartTotalCart_ShippingFeeTXT = By
+			.xpath("//div[@id='layer_cart']/div/div[2]/div[2]/strong");
+
+	private By ProductQuickView_AddToCartTotalCart_ShippingFee = By
+			.xpath("//div[@id='layer_cart']/div/div[2]/div[2]/span");
+
+	private By ProductQuickView_AddToCartContinueBtn = By.xpath("//div[@id='layer_cart']/div/div[2]/div[4]/span");
+	private By ProductQuickView_AddToCartProceedBtn = By.xpath("//div[@id='layer_cart']/div/div[2]/div[4]/a");
+	private By ProductQuickView_AddToCartCloseBtn = By.xpath("//div[@id='layer_cart']/div/div[1]/span");
+
+	private By ProductQuickView_CloseBtn = By.xpath("//a[@title='Close']");
+
+	public WebElement getProductQuickView_AddToCartContinueBtn() {
+		return driver.findElement(ProductQuickView_AddToCartContinueBtn);
+	}
+
+	public WebElement getProductQuickView_AddToCartProceedBtn() {
+		return driver.findElement(ProductQuickView_AddToCartProceedBtn);
+	}
+
+	public WebElement getProductQuickView_AddToCartCloseBtn() {
+		return driver.findElement(ProductQuickView_AddToCartCloseBtn);
+	}
+
+	public WebElement getProduct_QuickView_AddToCartSuccessMSG() {
+		return driver.findElement(ProductQuickView_AddToCartSuccessMSG);
+	}
+
+	public WebElement getProduct_QuickView_CartAddIMG() {
+		return driver.findElement(ProductQuickView_CartAddIMG);
+	}
+
+	public WebElement getProductQuickView_CartAddTitle() {
+		return driver.findElement(ProductQuickView_CartAddTitle);
+	}
+
+	public WebElement getProductQuickView_CartAddSize() {
+		return driver.findElement(ProductQuickView_CartAddSize);
+	}
+
+	public WebElement getProductQuickView_CartAddQuantityTXT() {
+		return driver.findElement(ProductQuickView_CartAddQuantityTXT);
+	}
+
+	public WebElement getProductQuickView_CartAddQuantity() {
+		return driver.findElement(ProductQuickView_CartAddQuantity);
+	}
+
 	private WebDriver driver;
 
 	public HomePageOB(WebDriver driver) {
@@ -219,11 +278,7 @@ public class HomePageOB {
 		return driver.findElement(productHoverPrice);
 	}
 
-	public void getScrollDonw(WebElement element) {
-		JavascriptExecutor je = (JavascriptExecutor) driver;
-		je.executeScript("arguments[0].scrollIntoView(true);", element);
 
-	}
 
 	public List<WebElement> getproductMoreBtnListHover() {
 
@@ -263,14 +318,7 @@ public class HomePageOB {
 		return driver.findElement(productCard);
 	}
 
-	public Actions getHoverOnElement(WebElement element) {
-		Actions act = new Actions(driver);
-
-		act.moveToElement(element).build().perform();
-
-		getImplictWait();
-		return act;
-	}
+	
 
 	public WebElement getProductQuickViewIFrameId() {
 		return driver.findElement(productQuickViewIFrameId);
@@ -327,25 +375,8 @@ public class HomePageOB {
 		return driver.findElement(productQuickViewDESC);
 	}
 
-	public void getImplictWait() {
-		try {
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		}
 
-		catch (Exception e) {
-			System.out.println(e.toString());
-		}
 
-	}
-
-	public WebElement getExplictWait(WebElement element) {
-
-		expectedElement = new WebDriverWait(driver, Duration.ofSeconds(10))
-				.until(ExpectedConditions.visibilityOfElementLocated(productQuickViewIMG));
-
-		return expectedElement;
-
-	}
 
 	public WebElement getProductQuickViewPrice() {
 		return driver.findElement(productQuickViewPrice);
@@ -378,19 +409,23 @@ public class HomePageOB {
 	public WebElement getProductQuickViewSelectSize() {
 		return driver.findElement(ProductQuickViewSelectSize);
 	}
-	
-	public Select getSelectDropdownList(WebElement element)
-	{
-		Select dropdown=new Select(element);
+
+	public Select getSelectDropdownList(WebElement element) {
+		Select dropdown = new Select(element);
 		return dropdown;
-		
+
 	}
+
 	public WebElement getProductQuickViewColor() {
 		return driver.findElement(ProductQuickViewColor);
 	}
+
 	public WebElement getProductQuickViewAddToCartBtn() {
 		return driver.findElement(ProductQuickViewAddToCartBtn);
 	}
 
-	
+	public WebElement getProductQuickView_CloseBtn() {
+		return driver.findElement(ProductQuickView_CloseBtn);
+	}
+
 }

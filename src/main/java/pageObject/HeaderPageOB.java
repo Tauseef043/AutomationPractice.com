@@ -32,6 +32,7 @@ public class HeaderPageOB {
 	By d_eveDressNav=By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[2]/a");
 	By d_sumDressNav=By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[3]/a");
 
+	By cartBtn=By.xpath("//div[@class='shopping_cart']/a");
 	public HeaderPageOB(WebDriver driver) {
 		this.driver = driver;
 
@@ -41,6 +42,7 @@ public class HeaderPageOB {
 	public WebElement getPhone() {
 		return driver.findElement(phoneTxt);
 	}
+
 
 	public WebElement bannerIMG() {
 		return driver.findElement(topBanner);
@@ -130,5 +132,8 @@ public class HeaderPageOB {
 	public WebElement getd_sumDressNav()
 	{
 		return driver.findElement(d_sumDressNav);
+	}
+	public WebElement getCartBtn() {
+		return driver.findElement(cartBtn);
 	}
 }

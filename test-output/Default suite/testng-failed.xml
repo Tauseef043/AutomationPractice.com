@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="automation.AutomationPractice.HomePageTest">
+      <class name="automation.AutomationPractice.CheckOutTest">
         <methods>
-          <include name="validate_quickView_Size"/>
-          <include name="initialization"/>
           <include name="waitMethod"/>
+          <include name="initialization"/>
+          <include name="Validate_Title"/>
         </methods>
-      </class> <!-- automation.AutomationPractice.HomePageTest -->
+      </class> <!-- automation.AutomationPractice.CheckOutTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

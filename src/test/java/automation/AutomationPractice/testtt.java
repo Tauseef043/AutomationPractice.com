@@ -5,11 +5,15 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -44,10 +48,25 @@ public class testtt extends base {
 
 	}
 
-@Test
-public void switchToiFrame()
-{
-}
-	
+	@Test
+	public void switchToiTabs() {
+
+		
+			 hp.getScrollDonw(hp.getProductCard());
+			  
+		Actions	  act = hp.getHoverOnElement(hp.getProductCard());
+			  Assert.assertTrue(hp.getproductHoverMoreBtn().isEnabled(),
+			  "More button clickable");
+			  
+			 hp.getproductHoverMoreBtn().click();
+			  
+		String	  title = "Faded Short Sleeve T-shirts - My Store";
+			  
+			  Assert.assertEquals(driver.getTitle().trim(), title.trim());
+			  
+			  driver.navigate().back();
+		
+
+	}
 
 }

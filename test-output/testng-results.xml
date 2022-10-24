@@ -1,285 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="23" passed="23" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
-    <line>
-      <![CDATA[Product Name  fetched as:Faded Short Sleeve T-shirts]]>
-    </line>
-    <line>
-      <![CDATA[Product Name  fetched as:Blouse]]>
-    </line>
-    <line>
-      <![CDATA[Product Name  fetched as:Printed Dress]]>
-    </line>
-    <line>
-      <![CDATA[Product Name  fetched as:Printed Dress]]>
-    </line>
-    <line>
-      <![CDATA[Product Name  fetched as:Printed Summer Dress]]>
-    </line>
-    <line>
-      <![CDATA[Product Name  fetched as:Printed Summer Dress]]>
-    </line>
-    <line>
-      <![CDATA[Product Name  fetched as:Printed Chiffon Dress]]>
-    </line>
-    <line>
-      <![CDATA[Product price fetched from UI is :]]>
-    </line>
-    <line>
-      <![CDATA[Product price fetched from UI is :$27.00]]>
-    </line>
-    <line>
-      <![CDATA[Product price fetched from UI is :$26.00]]>
-    </line>
-    <line>
-      <![CDATA[Product price fetched from UI is :$50.99]]>
-    </line>
-    <line>
-      <![CDATA[Product price fetched from UI is :$28.98 $30.51 -5%]]>
-    </line>
-    <line>
-      <![CDATA[Product price fetched from UI is :$30.50]]>
-    </line>
-    <line>
-      <![CDATA[Product price fetched from UI is :$16.40 $20.50 -20%]]>
-    </line>
   </reporter-output>
-  <suite started-at="2022-10-12T12:52:00 PKT" name="Default suite" finished-at="2022-10-12T12:52:33 PKT" duration-ms="32800">
+  <suite started-at="2022-10-24T17:35:01 PKT" name="Default suite" finished-at="2022-10-24T17:35:24 PKT" duration-ms="22838">
     <groups>
+      <group name="cart">
+        <method signature="CheckOutTest.addToCart()[pri:1, instance:automation.AutomationPractice.CheckOutTest@37d4349f]" name="addToCart" class="automation.AutomationPractice.CheckOutTest"/>
+      </group> <!-- cart -->
     </groups>
-    <test started-at="2022-10-12T12:52:00 PKT" name="Default test" finished-at="2022-10-12T12:52:33 PKT" duration-ms="32800">
-      <class name="automation.AutomationPractice.HomePageTest">
-        <test-method is-config="true" signature="initialization()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:00 PKT" name="initialization" finished-at="2022-10-12T12:52:09 PKT" duration-ms="9304" status="PASS">
+    <test started-at="2022-10-24T17:35:01 PKT" name="Default test" finished-at="2022-10-24T17:35:24 PKT" duration-ms="22838">
+      <class name="automation.AutomationPractice.CheckOutTest">
+        <test-method is-config="true" signature="initialization()[pri:0, instance:automation.AutomationPractice.CheckOutTest@37d4349f]" started-at="2022-10-24T17:35:01 PKT" name="initialization" finished-at="2022-10-24T17:35:12 PKT" duration-ms="10936" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initialization -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:09 PKT" name="waitMethod" finished-at="2022-10-12T12:52:09 PKT" duration-ms="6" status="PASS">
+        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.CheckOutTest@37d4349f]" started-at="2022-10-24T17:35:12 PKT" name="waitMethod" finished-at="2022-10-24T17:35:12 PKT" duration-ms="20" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- waitMethod -->
-        <test-method signature="leftBannerImageVisibility()[pri:1, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:09 PKT" name="leftBannerImageVisibility" finished-at="2022-10-12T12:52:10 PKT" duration-ms="441" status="PASS">
+        <test-method signature="addToCart()[pri:1, instance:automation.AutomationPractice.CheckOutTest@37d4349f]" started-at="2022-10-24T17:35:12 PKT" name="addToCart" finished-at="2022-10-24T17:35:18 PKT" duration-ms="5319" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- leftBannerImageVisibility -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:10 PKT" name="waitMethod" finished-at="2022-10-12T12:52:10 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="leftBannerTitleVisibility()[pri:2, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:10 PKT" name="leftBannerTitleVisibility" finished-at="2022-10-12T12:52:10 PKT" duration-ms="342" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- leftBannerTitleVisibility -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:10 PKT" name="waitMethod" finished-at="2022-10-12T12:52:10 PKT" duration-ms="3" status="PASS">
+        </test-method> <!-- addToCart -->
+        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.CheckOutTest@37d4349f]" started-at="2022-10-24T17:35:18 PKT" name="waitMethod" finished-at="2022-10-24T17:35:18 PKT" duration-ms="15" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- waitMethod -->
-        <test-method signature="leftBannerDescriptionVisibility()[pri:3, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:10 PKT" name="leftBannerDescriptionVisibility" finished-at="2022-10-12T12:52:11 PKT" duration-ms="352" status="PASS">
+        <test-method signature="Validate_Title()[pri:2, instance:automation.AutomationPractice.CheckOutTest@37d4349f]" started-at="2022-10-24T17:35:18 PKT" name="Validate_Title" finished-at="2022-10-24T17:35:20 PKT" duration-ms="2258" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Order - My Store] but found [true]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Order - My Store] but found [true]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+at org.testng.Assert.assertEquals(Assert.java:122)
+at org.testng.Assert.assertEquals(Assert.java:617)
+at automation.AutomationPractice.CheckOutTest.Validate_Title(CheckOutTest.java:67)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- leftBannerDescriptionVisibility -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:11 PKT" name="waitMethod" finished-at="2022-10-12T12:52:11 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="leftBannerShopBTNVisibility()[pri:4, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:11 PKT" name="leftBannerShopBTNVisibility" finished-at="2022-10-12T12:52:11 PKT" duration-ms="335" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- leftBannerShopBTNVisibility -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:11 PKT" name="waitMethod" finished-at="2022-10-12T12:52:11 PKT" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="rightUpBannerVisiblity()[pri:5, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:11 PKT" name="rightUpBannerVisiblity" finished-at="2022-10-12T12:52:11 PKT" duration-ms="27" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rightUpBannerVisiblity -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:11 PKT" name="waitMethod" finished-at="2022-10-12T12:52:11 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="rightDownBannerVisiblity()[pri:6, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:11 PKT" name="rightDownBannerVisiblity" finished-at="2022-10-12T12:52:11 PKT" duration-ms="27" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rightDownBannerVisiblity -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:11 PKT" name="waitMethod" finished-at="2022-10-12T12:52:11 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="productTabsVerification()[pri:7, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:11 PKT" name="productTabsVerification" finished-at="2022-10-12T12:52:12 PKT" duration-ms="734" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- productTabsVerification -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:12 PKT" name="waitMethod" finished-at="2022-10-12T12:52:12 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="validateProductsTitle()[pri:8, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:12 PKT" name="validateProductsTitle" finished-at="2022-10-12T12:52:12 PKT" duration-ms="189" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[Product Name  fetched as:Faded Short Sleeve T-shirts]]>
-            </line>
-            <line>
-              <![CDATA[Product Name  fetched as:Blouse]]>
-            </line>
-            <line>
-              <![CDATA[Product Name  fetched as:Printed Dress]]>
-            </line>
-            <line>
-              <![CDATA[Product Name  fetched as:Printed Dress]]>
-            </line>
-            <line>
-              <![CDATA[Product Name  fetched as:Printed Summer Dress]]>
-            </line>
-            <line>
-              <![CDATA[Product Name  fetched as:Printed Summer Dress]]>
-            </line>
-            <line>
-              <![CDATA[Product Name  fetched as:Printed Chiffon Dress]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- validateProductsTitle -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:12 PKT" name="waitMethod" finished-at="2022-10-12T12:52:12 PKT" duration-ms="2" status="PASS">
+        </test-method> <!-- Validate_Title -->
+        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.CheckOutTest@37d4349f]" started-at="2022-10-24T17:35:20 PKT" name="waitMethod" finished-at="2022-10-24T17:35:20 PKT" duration-ms="9" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- waitMethod -->
-        <test-method signature="validateProductsPrice()[pri:9, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:12 PKT" name="validateProductsPrice" finished-at="2022-10-12T12:52:12 PKT" duration-ms="125" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[Product price fetched from UI is :]]>
-            </line>
-            <line>
-              <![CDATA[Product price fetched from UI is :$27.00]]>
-            </line>
-            <line>
-              <![CDATA[Product price fetched from UI is :$26.00]]>
-            </line>
-            <line>
-              <![CDATA[Product price fetched from UI is :$50.99]]>
-            </line>
-            <line>
-              <![CDATA[Product price fetched from UI is :$28.98 $30.51 -5%]]>
-            </line>
-            <line>
-              <![CDATA[Product price fetched from UI is :$30.50]]>
-            </line>
-            <line>
-              <![CDATA[Product price fetched from UI is :$16.40 $20.50 -20%]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- validateProductsPrice -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:12 PKT" name="waitMethod" finished-at="2022-10-12T12:52:12 PKT" duration-ms="2" status="PASS">
+        <test-method signature="Validate_ProceedToCheckOutBtn()[pri:3, instance:automation.AutomationPractice.CheckOutTest@37d4349f]" started-at="2022-10-24T17:35:20 PKT" name="Validate_ProceedToCheckOutBtn" finished-at="2022-10-24T17:35:24 PKT" duration-ms="4240" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="validateProductsImage()[pri:10, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:12 PKT" name="validateProductsImage" finished-at="2022-10-12T12:52:12 PKT" duration-ms="257" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateProductsImage -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:12 PKT" name="waitMethod" finished-at="2022-10-12T12:52:12 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="validateProductQuickViewBtnHover()[pri:11, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:12 PKT" name="validateProductQuickViewBtnHover" finished-at="2022-10-12T12:52:13 PKT" duration-ms="216" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateProductQuickViewBtnHover -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:13 PKT" name="waitMethod" finished-at="2022-10-12T12:52:13 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="quickViewValidateIMG()[pri:12, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:13 PKT" name="quickViewValidateIMG" finished-at="2022-10-12T12:52:21 PKT" duration-ms="8766" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quickViewValidateIMG -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:21 PKT" name="waitMethod" finished-at="2022-10-12T12:52:21 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="quickView_ValidateIMG_BottomList()[pri:13, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:21 PKT" name="quickView_ValidateIMG_BottomList" finished-at="2022-10-12T12:52:21 PKT" duration-ms="122" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quickView_ValidateIMG_BottomList -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:21 PKT" name="waitMethod" finished-at="2022-10-12T12:52:21 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="quickView_Validate_product_Title()[pri:14, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:21 PKT" name="quickView_Validate_product_Title" finished-at="2022-10-12T12:52:21 PKT" duration-ms="36" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quickView_Validate_product_Title -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:21 PKT" name="waitMethod" finished-at="2022-10-12T12:52:21 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="quickView_Validate_product_SKU()[pri:15, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:21 PKT" name="quickView_Validate_product_SKU" finished-at="2022-10-12T12:52:22 PKT" duration-ms="31" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quickView_Validate_product_SKU -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="waitMethod" finished-at="2022-10-12T12:52:22 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="quickView_Validate_product_ConditionType()[pri:16, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="quickView_Validate_product_ConditionType" finished-at="2022-10-12T12:52:22 PKT" duration-ms="35" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quickView_Validate_product_ConditionType -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="waitMethod" finished-at="2022-10-12T12:52:22 PKT" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="quickView_Validate_product_DESC()[pri:17, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="quickView_Validate_product_DESC" finished-at="2022-10-12T12:52:22 PKT" duration-ms="37" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quickView_Validate_product_DESC -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="waitMethod" finished-at="2022-10-12T12:52:22 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="quickView_Validate_Prices()[pri:18, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="quickView_Validate_Prices" finished-at="2022-10-12T12:52:22 PKT" duration-ms="59" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quickView_Validate_Prices -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="waitMethod" finished-at="2022-10-12T12:52:22 PKT" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="validateQuanitityLabel()[pri:19, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="validateQuanitityLabel" finished-at="2022-10-12T12:52:22 PKT" duration-ms="36" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validateQuanitityLabel -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="waitMethod" finished-at="2022-10-12T12:52:22 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="validate_quickView_Quanitity()[pri:20, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="validate_quickView_Quanitity" finished-at="2022-10-12T12:52:22 PKT" duration-ms="636" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validate_quickView_Quanitity -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="waitMethod" finished-at="2022-10-12T12:52:22 PKT" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="validate_quickView_Size()[pri:21, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:22 PKT" name="validate_quickView_Size" finished-at="2022-10-12T12:52:23 PKT" duration-ms="226" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validate_quickView_Size -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:23 PKT" name="waitMethod" finished-at="2022-10-12T12:52:23 PKT" duration-ms="2" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="validate_quickView_ProductColor()[pri:22, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:23 PKT" name="validate_quickView_ProductColor" finished-at="2022-10-12T12:52:33 PKT" duration-ms="10192" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validate_quickView_ProductColor -->
-        <test-method is-config="true" signature="waitMethod()[pri:0, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:33 PKT" name="waitMethod" finished-at="2022-10-12T12:52:33 PKT" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- waitMethod -->
-        <test-method signature="validate_quickView_ProductAddCartBtn()[pri:23, instance:automation.AutomationPractice.HomePageTest@ffaa6af]" started-at="2022-10-12T12:52:33 PKT" name="validate_quickView_ProductAddCartBtn" finished-at="2022-10-12T12:52:33 PKT" duration-ms="151" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validate_quickView_ProductAddCartBtn -->
-      </class> <!-- automation.AutomationPractice.HomePageTest -->
+        </test-method> <!-- Validate_ProceedToCheckOutBtn -->
+      </class> <!-- automation.AutomationPractice.CheckOutTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

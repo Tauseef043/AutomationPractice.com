@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -300,6 +301,7 @@ public class HomePageTest extends base {
 
 	@Test(priority = 11)
 	public void validateProductQuickViewBtnHover() {
+
 		hp.getScrollDonw(hp.getProductCard());
 
 		act = hp.getHoverOnElement(hp.getproductHoverQuickView());
@@ -520,35 +522,106 @@ public class HomePageTest extends base {
 		hp.switchToNormalFromFrame();
 
 	}
+	/*
+	 * @Test(priority = 24)
+	 * 
+	 * public void validate_quickView_CloseBtn() { //this is not in frame
+	 * if(hp.getProductQuickView_CloseBtn().isEnabled()) {
+	 * hp.getProductQuickView_CloseBtn().click(); } else {
+	 * Assert.assertTrue(false,"Quick view popup close button"); }
+	 * 
+	 * }
+	 */
 
 	@Test(priority = 23)
 	public void validate_quickView_ProductAddCartBtn() {
 		hp.switchToiFrame();
-		
+
 		Assert.assertTrue(hp.getProductQuickViewAddToCartBtn().isEnabled(), "PRoduct quick view cart Button enable");
 		hp.getProductQuickViewAddToCartBtn().click();
 		hp.switchToNormalFromFrame();
 
 	}
 
-	/*
-	 * @Test(priority = 18) public void validateProductMoreBtnHover() {
-	 * hp.getScrollDonw(hp.getProductCard());
-	 * 
-	 * act = hp.getHoverOnElement(hp.getproductHoverMoreBtn());
-	 * 
-	 * Assert.assertTrue(hp.getproductHoverMoreBtn().isEnabled(),
-	 * "More button clickable");
-	 * 
-	 * act.click().build().perform();
-	 * 
-	 * title = "Faded Short Sleeve T-shirts - My Store";
-	 * 
-	 * Assert.assertEquals(driver.getTitle().trim(), title.trim());
-	 * 
-	 * driver.navigate().back();
-	 * 
-	 * }
-	 */
+	@Test(priority = 24)
+	public void validate_quickView_Proceed_CheckoutBtn() {
+		hp.switchToiFrame();
+
+		if (hp.getProductQuickView_AddToCartProceedBtn().isEnabled()) {
+
+			// hp.getProductQuickView_AddToCartProceedBtn().sendKeys(Keys.chord(Keys.CONTROL,
+			// Keys.ENTER));
+
+		} else {
+			Assert.assertTrue(false, "Product quick view Proceed checkout Button");
+
+			hp.switchToNormalFromFrame();
+
+		}
+
+	}
+
+	@Test(priority = 25)
+	public void validate_quickView_continueShopBtn() {
+		// hp.switchToiFrame();
+
+		if (hp.getProductQuickView_AddToCartContinueBtn().isEnabled()) {
+			hp.getProductQuickView_AddToCartContinueBtn().click();
+
+		} else {
+			Assert.assertTrue(false, "Product quick view Continue Shop Button");
+
+		}
+
+		// hp.switchToNormalFromFrame();
+
+	}
+
+	@Test(priority = 26)
+	public void validateProductMoreBtnHover() throws InterruptedException {
+
+		Thread.sleep(3000);
+		hp.getScrollDonw(hp.getProductCard());
+
+		Actions act = hp.getHoverOnElement(hp.getProductCard());
+		hp.getHoverOnElement(hp.getproductHoverMoreBtn());
+		Assert.assertTrue(hp.getproductHoverMoreBtn().isEnabled(), "More button clickable");
+
+		hp.getproductHoverMoreBtn().click();
+
+		String title = "Faded Short Sleeve T-shirts - My Store";
+
+		if (driver.getTitle().trim().equals(title.trim())) {
+			driver.navigate().back();
+		} else {
+			Assert.assertEquals(false, "product page opening");
+		}
+		driver.navigate().back();
+
+	}
+
+	@Test(priority = 27)
+	public void validateProduct_cart() throws InterruptedException {
+
+		hp.getScrollDonw(hp.getProductCard());
+
+		Thread.sleep(3000);
+
+		hp.getHoverOnElement(hp.getProductCard());
+		Assert.assertTrue(hp.getproductHoveraddToCart().isEnabled(), "Product add to cart button");
+		hp.getproductHoveraddToCart().click();
+
+		hp.getExplictWait(hp.getProduct_QuickView_AddToCartSuccessMSG());
+
+		if (hp.getProduct_QuickView_AddToCartSuccessMSG().getText()
+				.contains("Product successfully added to your shopping cart")) {
+			hp.getProductQuickView_AddToCartProceedBtn().click();
+		} else {
+			Assert.assertTrue(false, "Product add to cart");
+		}
+		
+		driver.navigate().back();
+
+	}
 
 }
