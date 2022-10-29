@@ -7,7 +7,7 @@
         <methods>
           <include name="waitMethod"/>
           <include name="initialization"/>
-          <include name="Validate_Title"/>
+          <include name="validate_PaymentMethods"/>
         </methods>
       </class> <!-- automation.AutomationPractice.CheckOutTest -->
     </classes>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Homepage(failed)">
     <classes>
-      <class name="automation.AutomationPractice.CheckOutTest">
+      <class name="automation.AutomationPractice.HomePageTest">
         <methods>
-          <include name="waitMethod"/>
+          <include name="validateProductsImage"/>
           <include name="initialization"/>
-          <include name="Validate_Title"/>
+          <include name="waitMethod"/>
         </methods>
-      </class> <!-- automation.AutomationPractice.CheckOutTest -->
+      </class> <!-- automation.AutomationPractice.HomePageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Homepage(failed) -->
+</suite> <!-- Failed suite [Suite] -->

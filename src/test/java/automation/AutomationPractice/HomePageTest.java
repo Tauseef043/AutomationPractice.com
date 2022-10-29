@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -44,7 +46,7 @@ public class HomePageTest extends base {
 	public void waitMethod() {
 
 		hp = new HomePageOB(driver);
-		hp.getImplictWait();
+		getImplictWait();
 
 	}
 
@@ -221,7 +223,7 @@ public class HomePageTest extends base {
 	@Test(priority = 7)
 	public void productTabsVerification() throws InterruptedException {
 
-		hp.getScrollDonw(hp.getPopularProdTab());
+		getScrollDonw(hp.getPopularProdTab());
 
 		Assert.assertTrue(hp.getBestSellerProdTab().isEnabled(), "Best Seller Product Tab ");
 		hp.getBestSellerProdTab().click();
@@ -233,7 +235,7 @@ public class HomePageTest extends base {
 
 	@Test(priority = 8)
 	public void validateProductsTitle() {
-		hp.getScrollDonw(hp.getProductCard());
+		getScrollDonw(hp.getProductCard());
 		// Fetch All the Products Text
 		List<WebElement> list_of_products = (List<WebElement>) hp.getProductList();
 		List<WebElement> list_of_productsTitle = (List<WebElement>) hp.getProductTitleList();
@@ -257,7 +259,7 @@ public class HomePageTest extends base {
 	@Test(priority = 9)
 	public void validateProductsPrice() {
 
-		hp.getScrollDonw(hp.getProductCard());
+		getScrollDonw(hp.getProductCard());
 		// Fetch All the Products Text
 		List<WebElement> list_of_products = (List<WebElement>) hp.getProductList();
 		List<WebElement> list_of_productsPrice = (List<WebElement>) hp.getproductPriceList();
@@ -278,7 +280,7 @@ public class HomePageTest extends base {
 
 	@Test(priority = 10)
 	public void validateProductsImage() {
-		hp.getScrollDonw(hp.getProductCard());
+	getScrollDonw(hp.getProductCard());
 
 		// Fetch All the Products Text
 		List<WebElement> list_of_products = (List<WebElement>) hp.getProductList();
@@ -302,9 +304,9 @@ public class HomePageTest extends base {
 	@Test(priority = 11)
 	public void validateProductQuickViewBtnHover() {
 
-		hp.getScrollDonw(hp.getProductCard());
+		getScrollDonw(hp.getProductCard());
 
-		act = hp.getHoverOnElement(hp.getproductHoverQuickView());
+		act = getHoverOnElement(hp.getproductHoverQuickView());
 
 		act.click().build().perform();
 
@@ -317,7 +319,7 @@ public class HomePageTest extends base {
 	public void quickViewValidateIMG() {
 
 		hp.switchToiFrame();
-		hp.getExplictWait(hp.getProductQuickViewIMG());
+	getExplictWait(hp.getProductQuickViewIMG());
 
 		Assert.assertTrue(hp.getProductQuickViewIMG().isDisplayed(), "Quick View Image visibility");
 
@@ -325,7 +327,7 @@ public class HomePageTest extends base {
 
 		for (int i = 0; i < quickViewIMGList.size(); i++) {
 
-			act = hp.getHoverOnElement(quickViewIMGList.get(i));
+			act = getHoverOnElement(quickViewIMGList.get(i));
 			act.click().build().perform();
 
 			if (hp.getProductQuickViewIMG().isDisplayed()) {
@@ -581,10 +583,10 @@ public class HomePageTest extends base {
 	public void validateProductMoreBtnHover() throws InterruptedException {
 
 		Thread.sleep(3000);
-		hp.getScrollDonw(hp.getProductCard());
+	getScrollDonw(hp.getProductCard());
 
-		Actions act = hp.getHoverOnElement(hp.getProductCard());
-		hp.getHoverOnElement(hp.getproductHoverMoreBtn());
+		Actions act = getHoverOnElement(hp.getProductCard());
+		getHoverOnElement(hp.getproductHoverMoreBtn());
 		Assert.assertTrue(hp.getproductHoverMoreBtn().isEnabled(), "More button clickable");
 
 		hp.getproductHoverMoreBtn().click();
@@ -603,15 +605,15 @@ public class HomePageTest extends base {
 	@Test(priority = 27)
 	public void validateProduct_cart() throws InterruptedException {
 
-		hp.getScrollDonw(hp.getProductCard());
+		getScrollDonw(hp.getProductCard());
 
 		Thread.sleep(3000);
 
-		hp.getHoverOnElement(hp.getProductCard());
+		getHoverOnElement(hp.getProductCard());
 		Assert.assertTrue(hp.getproductHoveraddToCart().isEnabled(), "Product add to cart button");
 		hp.getproductHoveraddToCart().click();
 
-		hp.getExplictWait(hp.getProduct_QuickView_AddToCartSuccessMSG());
+		getExplictWait(hp.getProduct_QuickView_AddToCartSuccessMSG());
 
 		if (hp.getProduct_QuickView_AddToCartSuccessMSG().getText()
 				.contains("Product successfully added to your shopping cart")) {
@@ -624,4 +626,6 @@ public class HomePageTest extends base {
 
 	}
 
+
+	
 }

@@ -5,7 +5,7 @@
 		<classes>
 			<class name="automation.AutomationPractice.HomePageTest" />
 			<class name="automation.AutomationPractice.CheckOutTest" >
-			<methods><include name="validateProduct_cart"></include></methods>
+
 			</class>
 		</classes>
 
